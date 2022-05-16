@@ -13,7 +13,6 @@ form.addEventListener("submit", (e) => {
     addTodo();
 });
 
-
 function addTodo(savedTodo) {
     let todoText = input.value;
     let todoClass = "";
@@ -64,7 +63,6 @@ function addTodo(savedTodo) {
                 updateLocalStorage()
             }
         });
-
         updateLocalStorage();
     }
 }

@@ -9,24 +9,39 @@
     <title>To Do List</title>
 </head>
 
-<body>
+<body data-theme>
     <div class="container">
-        <h1>todos list</h1>
-        <form action="" id="form">
-            <input type="text" class="input" id="input" placeholder="Enter your todo" autocomplete="off">
+        <header>
+            <nav class="nav">
+                <div class="nav-link">
+                    <p>Switch Theme</p>
+                    <div class="switch">
+                        <input class="switch-input" type="checkbox" id="themeSwitch">
+                        <label aria-hidden="true" class="switch-label" for="themeSwitch">On</label>
+                        <div aria-hidden="true" class="switch-dot"></div>
+                    </div>
 
-            <!-- list -->
-            <ul class="todos" id="todos">
-            </ul>
-        </form>
+                </div>
+            </nav>
+        </header>
 
-        <!-- <small> Left click: mark completed <br> Right-click: delete</small> -->
+        <main>
+            <h1>todos list</h1>
+            <form action="" id="form">
+                <input type="text" class="input" id="input" placeholder="Enter your todo" autocomplete="off">
+
+                <!-- list -->
+                <ul class="todos" id="todos">
+                </ul>
+            </form>
+        </main>
     </div>
 
     <footer>
         <p> Developed by <a href="https://www.linkedin.com/in/mannar-hielal/">Mannar Hielal</a></p>
     </footer>
-    <script src="script.js"></script>
+    <script src="theme-script.js"></script>
+    <script src="todo-script.js"></script>
 </body>
 
 </html>
