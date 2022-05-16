@@ -9,6 +9,8 @@ body {
     --primary-color: 245, 153, 176;
     --secondary-color: 79, 72, 173;
     --tertiary-color: 94, 100, 114;
+    --warning-color: 213, 60, 60;
+    --success-color: 106, 195, 89;
 
     --box-shadow-dark: 0px 2px 10px rgba(0, 0, 0, 0.2);
     --header-color: rgba(var(--secondary-color), 0.3);
@@ -23,13 +25,36 @@ body {
 
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     height: 100vh;
     background-color: var(--body-bg-color);
     color: var(--text-color);
+}
+
+.container {
+    --bs-gutter-x: 1.5rem;
+
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .5rem);
+    padding-left: var(--bs-gutter-x, .5rem);
+    margin: 5rem auto 0;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
 }
 
 h1 {
@@ -70,13 +95,68 @@ a:focus {
 
 .todos li {
     border-top: 1px solid var(--border-color-light);
-    cursor: pointer;
     font-size: 1.5rem;
-    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-start;
+
 }
 
-.todos li.completed {
-    color: var(--text-color-light);
+.text {
+    width: calc(100% - 6rem);
+    text-align: left;
+    font-family: inherit;
+    font-weight: inherit;
+    padding: 1rem 0;
+    order: 2;
+}
+
+.delete,
+.check {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.delete {
+    visibility: hidden;
+    display: none;
+    order: 3;
+}
+
+.delete:hover {
+    color: rgba(var(--warning-color), 1);
+}
+
+.check {
+    order: 1;
+    opacity: 0.2;
+    transition: all 0.1s ease;
+}
+
+.check:hover {
+    opacity: 1;
+}
+
+.fa-check-circle:before {
+    content: "\f058";
+    font-family: "Font Awesome 5 Free";
+    transition: all 0.2s ease;
+    position: relative;
+    top: 1px;
+    font-size: 1.75rem;
+}
+
+/* compelted state */
+.completed .check {
+    color: rgba(var(--success-color), 1);
+    opacity: 1;
+}
+
+.completed .delete {
+    visibility: visible;
+    display: inline-block;
+}
+
+.completed .text {
     text-decoration: line-through;
 }
 
